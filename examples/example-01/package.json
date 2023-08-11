@@ -1,0 +1,12 @@
+{
+  "name": "example-01",
+  "version": "1.0.0",
+  "description": "basic example",
+  "main": "example-01.js",
+  "scripts": {
+    "start": "node example-01.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}

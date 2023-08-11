@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>HTML Form Input</title>
+        <style>
+            form {
+                border: 1px solid black;
+                padding: 30px;
+                margin: 30px;
+            }
+        </style>
+    </head>
+
+    <body>
+        <form action="./formdatapost" method="POST">
+            <p>A simple form to submit a POST request to './formdatapost'</p>
+            <label for="fname">First name:</label><br>
+            <input type="text" id="fname" name="fname"><br>
+            <label for="lname">Last name:</label><br>
+            <input type="text" id="lname" name="lname"><br><br>
+            <label for="age">Age:</label><br>
+            <input type="number" id="age" name="age"><br><br>
+
+            <input type="submit" value="Submit">
+        </form> 
+
+        <form action="./formdataget" method="GET">
+            <p>A simple form to submit a GET request to './formdataget'</p>
+            <label for="fname">First name:</label><br>
+            <input type="text" id="fname" name="fname"><br>
+            <label for="lname">Last name:</label><br>
+            <input type="text" id="lname" name="lname"><br><br>
+            <label for="age">Age:</label><br>
+            <input type="number" id="age" name="age"><br><br>
+
+            <input type="submit" value="Submit">
+        </form>
+        
+        <form action="./scoreform" method="POST">
+            <p>A simple form to demonstrate an input that can cause an exception.</p>
+            <p>Enter a score and then a total in order to calculate the percentage; for example, a score of 20 out of a total of 40 would be 50%.</p>
+            <label for="score">Score:</label><br>
+            <input type="text" id="score" name="score"><br>
+            <label for="total">Total:</label><br>
+            <input type="text" id="total" name="total"><br><br>
+            <input type="submit" value="Submit">
+        </form> 
+
+
+    </body>
+</html>
