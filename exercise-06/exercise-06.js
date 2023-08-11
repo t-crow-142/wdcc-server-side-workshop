@@ -10,6 +10,10 @@ app.use(express.static(path.join(__dirname, "public")));
 // Set up to use the body parser (allows us to read POSTed form data)
 app.use(express.urlencoded({ extended: false }));
 
+/*
+
+
+*/
 app.get("/test", function(req, res){
     const minimumYear = req.query.minimum;
     const maximumYear = req.query.maximum;
@@ -28,13 +32,13 @@ app.listen(port, function () {
 
 
 /*  
+    MOCK DATABASE AND DATA ACCESS FUNCTIONS BELOW
+
     These functions and associated arrays of JavaScript objects are a very basic 'mock database' & data access functions.
     NOTE: In a real application, this would be handled by a real database not arrays of JavaScript objects.
     It is suggested that as an extension to this task, you convert the mock database to a MongoDB database.
 */
 function getFilmsWithinYears(minimum, maximum){
-
-    console.log(JSON.stringify(getFilmsByDirectorId(3)));
 
     let filteredFilms = films.filter((film) => {
         return film.releaseYear >= minimum && film.releaseYear <= maximum;
@@ -48,6 +52,10 @@ function getFilmsByDirectorId(directorId){
     });
     return filteredFilms;
 }
+
+/*
+    Write your own data access functions here as needed:
+*/
 
 const directors = [{ "id": 1, "firstName": "Shaughn", "lastName": "Gladdor", "age": 18, "gender": "M", "country": "Indonesia" },
 { "id": 2, "firstName": "Burl", "lastName": "Reckhouse", "age": 51, "gender": "M", "country": "China" },

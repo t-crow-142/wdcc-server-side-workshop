@@ -8,13 +8,7 @@ The slides used in the presentation are available here: [https://docs.google.com
 
 ## Obtaining the code
 
-Now that you've obtained a copy of this repository through GitHub Classroom's invite, you have your own private version of this repository (i.e. the one you're looking at now)! To clone this repository onto your machine, click the green `Code` button, make sure `HTTPS` is selected, then click the `copy` button to the right of the web URL to copy its value. Then, clone onto your local machine from a terminal, using the `git clone` command.
-
-If this is the first time you've ever cloned a repository on the current machine, you may be asked to enter your GitHub credentials. The "sign in with your browser" option should work just fine. You may need to enter your GitHub username and password, and / or authorize "git credential manager" to access your account. Perform these steps if asked.
-
-Now, you should have a clone of your repository on your local machine, ready to develop!
-
-Remember to commit and push your work regularly for backup purposes. It's also really good practice to create new branches for each exercise, and merge these into `main` using a Pull Request (PR) when they're complete (as opposed to simply pushing directly to `main` each time). This will get you used to a collaborative workflow style that will come in really handy when working on the final team project this semester!
+You should fork and clone this repository and open it with an IDE like Visual Studio Code. Because this project contains server-side Node.js and Express code, you should make sure to setup node.js properly based on the instructions below.
 
 **Note:** Whenever this lab mentions opening a "terminal window", any terminal *should* work. However, the work has only been tested using `git bash`.
 
@@ -177,7 +171,7 @@ Run the webapp, examine the four route handlers defined in `exercise-04.js`, and
 
 ## Exercise Five &ndash; Revisiting the questionnaire
 
-Recall the questionnaire form you developed in Module One (HTML):
+For this exercise, you have been provided with a form that looks like this:
 
 ![](./spec/ex05-screenshot.png)
 
@@ -185,8 +179,116 @@ You'll find a model solution to this exercise in the [`exercise-05/public`](./ex
 
 At the marked location within `exercise-05.js`, add a route handler (the path can be anything you like, but try and have it make sense). When the user browses to [http://localhost:3000/form.html](http://localhost:3000/form.html), then submits the form with a `GET` request, your route handler should be called, read all the submitted values, and send them back to the client as JSON - similarly to the examples in Exercise Four.
 
+Write your code so that it checks if all fields in the form contained values and weren't just empty strings `""` . If some inputs from the form were empty, instead of sending the JSON representation of the form data back, you should send a message back to the client that some inputs were empty.
+
 Once you've done this, add an appropriate `action` and `method` to the `<form>` in `form.html`, then run and test your server. Make sure all data is read in as expected.
 
 Next, extend your webapp such that the form can be submitted via `POST` as well as `GET`. You can achieve this by adding a new route handler to the same path, but a different method. When adding the new handler, try to *reuse as much code as possible* - the vast majority of your code should **not** need to be duplicated!
 
 Once you're done, test your code by submitting the form as-is (to test that you didn't break existing functionality), *then* by changing the form's `method` to `POST`, and verifying that everything works as intended.
+
+## Exercise Six - Creating an API
+
+#### Familiarising yourself with the code:
+
+In this exercise, you have been provided with a very basic mock database that consists of two arrays of JavaScript objects. Your task will be to create a well designed API that could provide a client like a web browser access to this data. For this task, you will not need to create the user interface that would run on the client. You should use a tool like Postman to test your API. You may also want to make some basic HTML forms to test the ability to generate requests from the web browser if you wish, but this is option as you can simulate form submission through a tool like Postman.
+
+Familiarise yourself with the code included in exercise-06 before you start the tasks below.
+
+The mock data that you have been given consists of:
+
+- An array of film objects that have the following properties:
+  - id
+  - filmTitle
+  - releaseYear
+  - directorId
+  - length
+- An array of director object that have the following properties:
+  - id
+  - firstName
+  - lastName
+  - age
+  - gender
+  - country
+
+You have also been provided with a couple of example data access functions that use the .filter method to get films based on specific parameters; these are:
+
+- getFIlmsWithinYears
+- getFIlmsByDirectorId
+
+You will need to write some more functions like these for this task.
+
+Note: the mock data has been included within the main file for the sake of convenience and also so you can familiarise yourself with the general idea of arrays of JavaScript objects. It is important to remember that in a more complex application, the data would be stored within a real database and the functions that access data would generally be separated into separate modules.
+
+You have also been provide with a route handler function that can handle a GET request to the path `/test` . This route handler function has been provided as a demonstration of the general idea of how you can access data through the provided functions using query parameters from the request.
+
+There is also one very basic html form within the `public` directory that has the necessary inputs to generate a request to the `/test` route handler. 
+
+### Tasks:
+
+#### Requirements:
+
+You will be required to create an API that allows clients to retrieve data from the API based on any property of the films or directors. The API should always send data in responses as JSON so that it would be compatible with any range of modern UI/UX frameworks like React that render UI components based on JSON data received from the server.
+
+You will probably not have time to implement all of the code for the full API in the timeframe of the workshop; however, you should read the full requirements and design how you would implement the API to have well organised methods, paths and parameters. The point of having a large number of requirements outlined in the task, is to get you to think about how you would structure the server-side code for a larger API that provides access to a lot of data through the use of consistent conventions. It is suggested that you look at some open APIs online like[ https://pokeapi.co/ ](https://pokeapi.co/)as examples.
+
+You may customise some of the requirements yourself; however, these are the minimal requirements that would be provided by the API when complete:
+
+- Get a film by id
+- Get films by title
+- Get films by one specific release year
+- Get films by inputting the range of release years (minimum & maximum)
+- Get films by director id
+- Get films by maximum length
+- Get films by minimum length
+- Get films by a range of lengths (minimum & maximum)
+- Add a film to the data by specifying all required properties for a film object
+- Delete a film from the data based on a specific id
+- Get director by id
+  - As an added challenge you should try to get all films by the director and include the array of film objects by that director as an extra property in the data about the director
+- Get director/s by first name
+- Get director/s by last name
+- Get directors within an age range
+- Get directors by gender
+- Get directors by country
+- Add a director to the data by specifying all required properties for a director object
+- Delete a director from the data based on a specific id
+
+#### Planning and designing your API:
+
+For this step, you will develop a basic plan for how the API should be structured. 
+
+It is suggested that you design your API around REST principles and best practices for use of methods, parameters, path naming conventions etc.
+
+You should research some information related to how to design an API. Search queries like "REST API naming conventions and best practices" or "Best practices for API design" should lead you to some helpful information. There are also some standardised ways of documenting APIs.
+
+You should plan out a basic idea of how you will make all data available through the consistent use of methods, paths and parameters in requests. 
+
+For this step, you do not need to formally write out the plan for every route handler; however, you should have some idea how you will structure your code before moving onto the next step whether it is in your head or written down somewhere.
+
+### Writing and testing your server-side functionality route handler functions:
+
+After you have developed a plan of how you would like to structure your code, you should create the server-side functionality.
+
+You should follow these steps:
+
+- It is suggested that you start by renaming the "/test" route handler to have an appropriate path that fits with your API design
+- Write your route handler functions and associated data access functions one at a time and test them with Postman as you go
+- Work through implementing each of the requirements step-by-step making sure to test a range of valid expected inputs for each route handler you create
+- If you are not sure about how to create all of the required code, start with something simple like the route handler that will get films by director id; the data access function for getting films by director id has been provided for you
+- Work through as many of the requirements as you can in the time available, but you do not need to finish all of them if you run out of time
+
+### Refactoring with modules and routers
+
+After you have developed some of your route handler functions, you should move on to refactoring your code to use modules and routers.
+
+- Move all of the route handler functions related to film data into an apporpriately named directory and configure all files necessary so that they run from a dedicated router file
+- Move all of the route handler functions related to director data into an apporpriately named directory and configure all files necessary so that they run from a dedicated router file
+- Move all of film and director data and the functions that access film and director data into a separate module/s and then export the functions from the module/s so that they can be used where necessary
+
+### Suggested extension exercises:
+
+- Try to add the functionality for your API to be able to respond appropriately to invalid inputs to specific URL paths; for example, if an invalid value is given as a parameter for something like an id, age or year then the server should respond appropriately whenever possible; you should investigate things like error and exception handling and HTTP status codes
+  - Note: this is a very open ended task as error handling, exceptions and status codes can get quite complex
+- Investigate how to move the "mock database" into MongoDB and associated technologies like MongoDB Atlas to have the film and director data in a proper database; this would likely require quite a bit of time to study MongoDB if you aren't already familiar with it, so it is probably not possible within the timeframe of the workshop
+- Build some sort of front-end that can connect with your API and allow a user to access all information from the API; this could be built in React if you are familiar with React
