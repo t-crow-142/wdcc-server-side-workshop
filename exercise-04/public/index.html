@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="./js/exercise-04-client.js"></script>
+</head>
+
+<body>
+    <h1>Result of fetch() with a query parameter:</h1>
+    <p id="fetch-result"></p>
+
+    <h1>A form with method="GET":</h1>
+    <form action="./processFirstForm" method="GET">
+        <label for="txtName">Name:</label><br>
+        <input type="text" name="name" id="txtName"><br>
+        <label for="txtAddress">Address:</label><br>
+        <input type="text" name="address" id="txtAddress"><br>
+        <button type="submit">Submit!</button>
+    </form>
+
+    <h1>A form with method="POST":</h1>
+    <form action="./processSecondForm" method="POST">
+        <label for="txtName2">Name:</label><br>
+        <input type="text" name="name" id="txtName2"><br>
+        <label for="txtAddress2">Address:</label><br>
+        <input type="text" name="address" id="txtAddress2"><br>
+        <button type="submit">Submit!</button>
+    </form>
+
+    <h1>A form with multiple fields with the same name</h1>
+    <form action="./processThirdForm" method="GET">
+        <p>Select your favorite color(s):</p>
+        <input type="checkbox" name="color" value="red" id="chkColorRed"><label for="chkColorRed">Red</label>
+        <input type="checkbox" name="color" value="green" id="chkColorGreen"><label for="chkColorGreen">Green</label>
+        <input type="checkbox" name="color" value="blue" id="chkColorBlue"><label for="chkColorBlue">Blue</label>
+        <br>
+        <button type="submit">Submit!</button>
+    </form>
+
+</body>
+
+</html>

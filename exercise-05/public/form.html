@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>ICT Gradschool Questionnaire</title>
+</head>
+
+<body>
+
+    <div id="container">
+        <h1>ICT Gradschool Questionnaire</h1>
+
+        <!-- TODO Set this form's action and method. -->
+        <form>
+
+            <fieldset>
+                <legend>Your details</legend>
+
+                <p>
+                    <label for="name_id" class="question">Name:</label><br>
+                    <input type="text" size="50" name="name" id="name_id" placeholder="Your name goes here" />
+                </p>
+
+                <p>
+                    <label for="email_id" class="question">Email:</label><br>
+                    <input type="email" size="50" placeholder="Enter a university email address" name="e-mail"
+                        id="email_id" />
+                </p>
+
+                <p>
+                    <label for="city_id" class="question">Your city:</label><br>
+                    <input list="cities_list" type="text" size="50" placeholder="Choose your city or enter one"
+                        name="city" id="city_id" />
+                </p>
+
+                <datalist id="cities_list">
+                    <option value="Auckland">Auckland</option>
+                    <option value="Christchurch">Christchurch</option>
+                    <option value="Hamilton">Hamilton</option>
+                </datalist>
+
+            </fieldset>
+
+            <fieldset>
+                <legend>Questionnaire</legend>
+
+                <p class="question">How are you finding the course? Tick all applicable:</p>
+                <p>
+                    <input type="checkbox" name="thoughts" id="like_check_id" value="Enjoying it" /> <label
+                        for="like_check_id">Enjoying it</label>
+                    <input type="checkbox" name="thoughts" id="challenging_check_id" value="Challenging" /> <label
+                        for="challenging_check_id">Challenging</label>
+                    <input type="checkbox" name="thoughts" id="catchup_check_id" value="Still catching up" /> <label
+                        for="catchup_check_id">Still catching up</label>
+                    <input type="checkbox" name="thoughts" id="hard_check_id" value="Too hard" /> <label
+                        for="hard_check_id">Too
+                        hard</label>
+                    <input type="checkbox" name="thoughts" id="many_check_id" value="Too many exercises" /> <label
+                        for="many_check_id">Too many exercises</label>
+                    <input type="checkbox" name="thoughts" id="notenough_check_id" value="Not enough exercises" />
+                    <label for="notenough_check_id">Not enough exercises</label>
+                    <input type="checkbox" name="thoughts" id="confused_check_id" value="Confused" /> <label
+                        for="confused_check_id">Confused</label>
+                </p>
+
+                <p class="question">Choose the one that best describes your experience so far:</p>
+                <p>
+                    <input checked="checked" type="radio" name="experience" id="lot_radio_id" value="Learning a lot" />
+                    <label>Learning a lot</label>
+                    <input type="radio" name="experience" id="not_radio_id" value="Not learning enough" /> <label>Not
+                        learning enough</label>
+                    <input type="radio" name="experience" id="right_radio_id" value="Okay" /> <label>Okay</label>
+                </p>
+
+                <div>
+                    <label for="mammal_id" class="question">Pick your favourite animal:</label>
+                    <select name="mammal" id="mammal_id">
+                        <!-- size=1 by default and not multiple, so single selection -->
+                        <option selected="selected" value="Quokka">Quokka</option>
+                        <option value="Arctic Fox">Arctic Fox</option>
+                        <option value="Wombat">Wombat</option>
+                        <option value="Himalayan Pika">Himalayan Pika</option>
+                        <option value="Lynx">Lynx</option>
+                        <option value="Pallas Cat">Pallas Cat</option>
+                        <option value="Pika">Pika</option>
+                        <option value="Red Panda">Red Panda</option>
+                    </select>
+                </div>
+
+                <p>
+                    <label class="question" for="comments_id">Additional comments:</label>
+                </p>
+                <p>
+                    <textarea name="comments" id="comments_id" placeholder="Additional comments here..." rows="5"
+                        cols="60"></textarea>
+                </p>
+
+            </fieldset>
+
+            <p>
+                <input type="submit" name="submit_button" id="submit_id" value="Done!" />
+                <input type="reset" name="reset_button" id="reset_id" value="Clear" />
+            </p>
+        </form>
+
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,11 @@
+{
+  "name": "exercise-05",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node exercise-05.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
