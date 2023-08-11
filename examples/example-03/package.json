@@ -1,0 +1,8 @@
+{
+  "name": "example-03",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node example-03.js"
+  }
+}
