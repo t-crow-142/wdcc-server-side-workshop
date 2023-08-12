@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "start": "node exercise-06.js"
+    "start": "node exercise-05.js"
   },
   "dependencies": {
     "express": "^4.18.2"
